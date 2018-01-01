@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Result</title>
+  </head>
+  <body>
+    {% if result %}
+      <h1>Links Scraped:</h1>
+      <ol>
+      {% for tag in result %}
+        <a href="{{ tag }}"><li>{{ tag }}</li></a>
+      {% endfor %}
+      </ol>
+    {% else %}
+      <h1>No Anchor Tags Found</h1>
+    {% endif %}
+  </body>
+</html>
