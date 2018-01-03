@@ -24,22 +24,19 @@ def index(request):
             url = form.cleaned_data['url']
             print("URL: " + url)
 
+            tags = set([])
             try:
                 stored = models.WebPage.objects.get(url=url)
+                print("Data found in database!")
             except:
-            # if not stored:
+                print("No data in database")
                 with urllib.request.urlopen(url) as sock:
                     html = sock.read()
                     soup = BeautifulSoup(html, 'html.parser')
-                    # print(soup.prettify())
-
-                tags = set([])
                 domain = 'https://' + re.search(r'://(.*?)/', url).group(1)
                 for a in soup.find_all('a'):
                     try:
                         a = str(a['href'])
-
-                        # print('\t' + a)
                     except:
                         continue
                     else:
@@ -48,17 +45,12 @@ def index(request):
                         elif a.startswith('/'):
                             a = domain + a
                         tags.add(str(a))
-
                 page = models.WebPage.objects.get_or_create(url=url,
                                                             title=soup.title.string,
                                                             number_of_tags=len(tags))[0]
                 page.save()
 
                 for a in tags:
-                    # if a.startswith('#') or a == '':
-                    #     continue
-                    # elif a.startswith('/'):
-                    #     a = domain + a
                     new = models.Tag.objects.get_or_create(page=page, tag=a)
 
                 stored = models.WebPage.objects.get(url=url)
@@ -80,7 +72,6 @@ def index(request):
 
 
     """
-    You have to deal with the unicode problem!!!!
     Make the result.html look better
 
     """
