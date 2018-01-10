@@ -1,0 +1,22 @@
+{% extends 'scrape_app/base.html' %}
+
+{% block body_block %}
+
+  <div class="center">
+
+    <div class="form jumbotron">
+      <h1>Register Here:</h1>
+      <hr>
+      <form method="post">
+        {% csrf_token %}
+        <table class=table>
+          {{ form.as_table }}
+        </table>
+        <input type="submit" value="Register">
+      </form>
+    </div>
+
+  </div>
+
+
+{% endblock %}

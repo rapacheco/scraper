@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scraper</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "scrape_app/style.css" %}">
+  </head>
+  <body>
+
+    <nav class="navbar fixed-top navbar-light bg-primary border border-dark">
+      <a href="{% url 'index' %}" class="navbar-brand mx-auto my-4 h1" style="font-size: 2em;">WepPage Scraper</a>
+      <div class="container-fluid border border-dark">
+        <ul class="nav mx-auto">
+          {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link text-dark" href="#">My Links</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="{% url 'scrape_app:logout' %}">Logout</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link text-dark" href="{% url 'scrape_app:register' %}">Register</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="{% url 'scrape_app:login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+
+    {% block body_block %}
+    {% endblock %}
+
+    <nav class="navbar fixed-bottom navbar-light bg-primary border border-dark">
+      <p class="navbar-brand mx-auto my-4">Designed and coded by <a class="text-dark" href="https://www.facebook.com/rapachecobeiro">Rafael Pacheco Ribeiro</a></p>
+    </nav>
+  </body>
+</html>

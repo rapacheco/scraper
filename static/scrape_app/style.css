@@ -2,31 +2,14 @@ body {
   background-color: #DFDFDF;
 }
 
-.nav, .footer {
-  text-align: center;
-  position: fixed;
-  width: 100%;
-}
-
-.nav {
-  background-color: #ABF;
-  border-bottom: 2px solid black;
-  top: 0;
-  margin-bottom: 2%;
-  height: 100px;
-}
-
-.nav h1 {
-  margin: 30px auto 0 auto;
-}
-
 .center {
-  margin-top: 100px;
+  margin-top: 200px;
+  margin-bottom: 150px;
 }
 
 .form {
   width: 50%;
-  margin: 400px auto;
+  margin: 300px auto;
   text-align: center;
 }
 
@@ -34,18 +17,11 @@ body {
   margin-bottom: 4%;
 }
 
-#text_input {
-  margin-top: 2%;
-  width: 80%;
-}
-
 #button_input {
   margin-top: 2%;
-  width: 30%;
+  width: 30% !important;
 }
 
-.footer {
-  background-color: #89D;
-  border-top: 2px solid black;
-  bottom: 0;
+#url_form input {
+  width: 50%;
 }

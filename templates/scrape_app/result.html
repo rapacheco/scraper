@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Result</title>
-  </head>
-  <body>
+{% extends 'scrape_app/base.html' %}
+
+{% block body_block %}
+
+  <div class="center">
     {% if result %}
       <h1>Links Scraped:</h1>
       <ol>
       {% for tag in result %}
-        <a href="{{ tag }}"><li>{{ tag }}</li></a>
+        <li><a href="{{ tag }}">{{ tag }}</a></li>
       {% endfor %}
       </ol>
     {% else %}
       <h1>No Anchor Tags Found</h1>
     {% endif %}
-  </body>
-</html>
+  </div>
+
+{% endblock %}

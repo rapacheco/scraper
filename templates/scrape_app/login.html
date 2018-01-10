@@ -1,0 +1,21 @@
+{% extends 'scrape_app/base.html' %}
+
+{% block body_block %}
+
+<div class="center">
+
+  <div class="form jumbotron">
+    <h1>Login Here:</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="username">Username:</label>
+      <input type="text" name="username">
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}
